@@ -9,64 +9,55 @@
 import Foundation
 
 class tieGame: GameProtocol {
-    private var playerOnePoint = 0
-    private var playerTwoPoint = 0
+    
+    private var player1Points = 0
+    private var player2Points = 0
     
     func gamePointsForPlayer1() -> Int {
-          if playerOnePoint >= 6 && playerOnePoint > playerTwoPoint {
-              return playerOnePoint - playerTwoPoint
-          }
-          return 0
+        if player1Points >= 6 && player1Points > player2Points {
+            return player1Points - player2Points
+        }
+        return 0
       }
       
       func gamePointsForPlayer2() -> Int {
-          if playerTwoPoint >= 6 && playerTwoPoint > playerOnePoint {
-              return playerTwoPoint - playerOnePoint
-          }
-          return 0
+        if player2Points >= 6 && player2Points > player1Points {
+            return player2Points - player1Points
+        }
+        return 0
       }
     
     func addPointToPlayer1(){
-         playerOnePoint += 1
-       }
+        player1Points += 1
+    }
     
-       func addPointToPlayer2(){
-           playerTwoPoint += 1
-       }
+    func addPointToPlayer2(){
+        player2Points += 1
+    }
     
     func player1Score() -> String {
-     
-        
-        return String(playerOnePoint)
+        return String(player1Points)
     }
     
     func player2Score() -> String {
-        
-   
-                  
-                  return String(playerTwoPoint)
+        return String(player2Points)
     }
     
     func player1Won() -> Bool{
-           
-           if playerOnePoint >= 7 && playerOnePoint - playerTwoPoint >= 2{
-               return true
-           }
-           
-           return false
-           
-       }
+        if player1Points >= 7 && player1Points - player2Points >= 2{
+            return true
+        }
+        return false
+    }
        
-       func player2Won() -> Bool{
-           if playerTwoPoint >= 7 && playerTwoPoint - playerOnePoint >= 2{
-               return true
-           }
-           
-           return false
-           
-       }
+    func player2Won() -> Bool{
+        if player2Points >= 7 && player2Points - player1Points >= 2{
+            return true
+        }
+        return false
+    }
     
-    func complete() ->Bool {
+    func complete() -> Bool {
         if player1Won(){
             return true
         }
@@ -75,9 +66,7 @@ class tieGame: GameProtocol {
         }
         
         return false
-        
     }
-    
 }
 
 
