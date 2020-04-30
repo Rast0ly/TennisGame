@@ -1,4 +1,4 @@
-class Game {
+class Game: GameProtocol {
     
     var playerOnePoint = 0
     var playerTwoPoint = 0
@@ -9,7 +9,7 @@ class Game {
             
             return playerOnePoint - playerTwoPoint
         }
-      
+        
         
         return 0
         
@@ -24,63 +24,72 @@ class Game {
     }
     
     func addPointToPlayer1(){
-      playerOnePoint += 1
+        playerOnePoint += 1
     }
     func addPointToPlayer2(){
         playerTwoPoint += 1
     }
     
-
+    
     func player1Score() -> String {
         
         var score: String = "0"
-              
+        
         switch playerOnePoint {
         case 0 :
             score = "0"
         case 1:
             score = "15"
         case 2:
-        score = "30"
+            score = "30"
         case 3:
-        score = "40"
-        case 4:
-            score = "A"
-        default:
             score = "40"
+         default:
+            switch playerOnePoint - playerTwoPoint{
+            case -1, 0:
+                score = "40"
+            case 1:
+                score =  "A"
+            default:
+                break
+            }
             
         }
         
         return score
         
     }
-
+    
     func player2Score() -> String {
         
-      var score: String = "0"
-                        
-                  switch playerTwoPoint {
-                  case 0:
-                    score = "0"
-                  case 1:
-                      score = "15"
-                  case 2:
-                  score = "30"
-                  case 3:
-                  score = "40"
-                  case 4:
-                      score = "A"
-                  default:
-                      score = "40"
-                      
-                  }
-                  
-                  return score
+        var score: String = "0"
+        
+        switch playerTwoPoint {
+        case 0:
+            score = "0"
+        case 1:
+            score = "15"
+        case 2:
+            score = "30"
+        case 3:
+            score = "40"
+            
+        default:
+            switch playerTwoPoint - playerOnePoint{
+            case -1, 0:
+                score = "40"
+            case 1:
+                score =  "A"
+            default:
+                break
+            }
+        }
+        return score
+        
     }
-    
     func player1Won() -> Bool{
         
-        if playerOnePoint >= 4 {
+        if playerOnePoint >= 4 && playerOnePoint - playerTwoPoint >= 2{
             return true
         }
         
@@ -89,11 +98,11 @@ class Game {
     }
     
     func player2Won() -> Bool{
-         if playerTwoPoint >= 4{
-                   return true
-               }
-               
-               return false
+        if playerTwoPoint >= 4 && playerTwoPoint - playerOnePoint >= 2{
+            return true
+        }
+        
+        return false
         
     }
     

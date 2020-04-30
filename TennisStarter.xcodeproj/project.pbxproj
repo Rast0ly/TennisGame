@@ -20,7 +20,12 @@
 		BBA6F8FD1B26E86B006642BC /* GameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA6F8FC1B26E86B006642BC /* GameTests.swift */; };
 		CE9879B124584DF40021D6CE /* MatchLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9879B024584DF40021D6CE /* MatchLogic.swift */; };
 		CE9879B3245855D70021D6CE /* tieGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9879B2245855D70021D6CE /* tieGame.swift */; };
-		CE9879B524585FEA0021D6CE /* Set.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9879B424585FEA0021D6CE /* Set.swift */; };
+		CE9879B524585FEA0021D6CE /* SetLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9879B424585FEA0021D6CE /* SetLogic.swift */; };
+		CE9879B7245992020021D6CE /* GameProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9879B6245992020021D6CE /* GameProtocol.swift */; };
+		CE9879BA245B33B30021D6CE /* tieGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9879B2245855D70021D6CE /* tieGame.swift */; };
+		CE9879BB245B33BB0021D6CE /* MatchLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9879B024584DF40021D6CE /* MatchLogic.swift */; };
+		CE9879BC245B33C00021D6CE /* SetLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9879B424585FEA0021D6CE /* SetLogic.swift */; };
+		CE9879BD245B33C30021D6CE /* GameProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9879B6245992020021D6CE /* GameProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,7 +53,8 @@
 		BBA6F8FC1B26E86B006642BC /* GameTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameTests.swift; sourceTree = "<group>"; };
 		CE9879B024584DF40021D6CE /* MatchLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchLogic.swift; sourceTree = "<group>"; };
 		CE9879B2245855D70021D6CE /* tieGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tieGame.swift; sourceTree = "<group>"; };
-		CE9879B424585FEA0021D6CE /* Set.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Set.swift; sourceTree = "<group>"; };
+		CE9879B424585FEA0021D6CE /* SetLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetLogic.swift; sourceTree = "<group>"; };
+		CE9879B6245992020021D6CE /* GameProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,7 +105,8 @@
 				BBA6F8FA1B26E81E006642BC /* Game.swift */,
 				CE9879B2245855D70021D6CE /* tieGame.swift */,
 				CE9879B024584DF40021D6CE /* MatchLogic.swift */,
-				CE9879B424585FEA0021D6CE /* Set.swift */,
+				CE9879B424585FEA0021D6CE /* SetLogic.swift */,
+				CE9879B6245992020021D6CE /* GameProtocol.swift */,
 			);
 			path = TennisStarter;
 			sourceTree = "<group>";
@@ -239,10 +246,11 @@
 			files = (
 				CE9879B3245855D70021D6CE /* tieGame.swift in Sources */,
 				BBA6F8DD1B26E78E006642BC /* ViewController.swift in Sources */,
-				CE9879B524585FEA0021D6CE /* Set.swift in Sources */,
+				CE9879B524585FEA0021D6CE /* SetLogic.swift in Sources */,
 				BBA6F8FB1B26E81E006642BC /* Game.swift in Sources */,
 				CE9879B124584DF40021D6CE /* MatchLogic.swift in Sources */,
 				BBA6F8DB1B26E78E006642BC /* AppDelegate.swift in Sources */,
+				CE9879B7245992020021D6CE /* GameProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,9 +258,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE9879BB245B33BB0021D6CE /* MatchLogic.swift in Sources */,
+				CE9879BA245B33B30021D6CE /* tieGame.swift in Sources */,
 				49F4A80B1FFD36F6004C17A9 /* ViewController.swift in Sources */,
 				496B3CDE1CE0BAA80090A701 /* Game.swift in Sources */,
 				BBA6F8FD1B26E86B006642BC /* GameTests.swift in Sources */,
+				CE9879BC245B33C00021D6CE /* SetLogic.swift in Sources */,
+				CE9879BD245B33C30021D6CE /* GameProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

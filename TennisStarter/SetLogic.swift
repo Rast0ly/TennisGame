@@ -11,26 +11,33 @@ import Foundation
 class TennisSet {
 
     
-    private var games = [Game]()
+    private var games = [GameProtocol]()
     
-    var game: Game! {
+    var game: GameProtocol! {
         get {
             return games[games.count - 1]
         }
     }
     
-    private var playerOneWon = 0
-    private var playerTwoWon = 0
+    var playerOneWon = 0
+    var playerTwoWon = 0
     private var lead = 2
     private var totalWinsToWin = 6
     private var playerOnePoint = 0
+    private var tieBrake = 0
     
+    init(tieBrake: Int ) {
+        games.append(Game())
+        self.tieBrake = tieBrake
+        
+    }
     
     //Total up set wins
     func addPointToPlayerOne() {
         game.addPointToPlayer1()
         if game.complete() {
             playerOneWon += 1
+            startNextGame()
            
         }
     }
@@ -39,11 +46,22 @@ class TennisSet {
         game.addPointToPlayer2()
         if game.complete() {
             playerTwoWon += 1
+            startNextGame()
             
         }
     }
-    
-    func isPlayerOneWinner() -> Bool {
+  
+    func startNextGame() {
+            if !gameEnd() {
+                if isTiebraker() {
+                    games.append(tieGame())
+                } else {
+                    games.append(Game())
+                }
+            }
+    }
+            
+        func isPlayerOneWinner() -> Bool {
         var playerOneIsWinner = false
         if playerOneWon >= totalWinsToWin && playerOneWon - playerTwoWon >= lead{
             playerOneIsWinner = true
@@ -62,30 +80,29 @@ class TennisSet {
        }
     
     func isTiebraker() -> Bool{
-        let tieBrakerCondtion = 6
-        return playerOneWon == tieBrakerCondtion && playerTwoWon == tieBrakerCondtion
+        
+        return playerOneWon == tieBrake && playerTwoWon == tieBrake
     }
     
     func gameEnd() -> Bool {
         return isPlayerTwoWinner() || isPlayerOneWinner()
     }
     
-    func playerOneAdvantage(playerOneWon: Int, playerTwoWon: Int) -> Bool{
+    func playerOneAdvantage() -> Bool{
         return playerOneWon >= totalWinsToWin - 1 && playerOneWon > playerTwoWon
     }
-    func playerTwoAdvantage(playerOneWon: Int, playerTwoWon: Int) -> Bool{
+    func playerTwoAdvantage() -> Bool{
             return playerTwoWon >= totalWinsToWin - 1 && playerTwoWon > playerOneWon
         }
-    
-    func playerOneWinsSet() -> Bool{
-        if playerOneAdvantage && isPlayerOneWinner() || isTiebraker() && isPlayerOneWinner(){
-            
-        }
-        return game.gamePointsForPlayer1()
+    func playOneHasSetPoint() -> Bool{
+        return game.gamePointsForPlayer1() > 0 && playerOneAdvantage()
     }
     
+    func playerTwoHasSetPoint() -> Bool{
+            return game.gamePointsForPlayer2() > 0 && playerTwoAdvantage()
         
     }
+}
 
 
 
